@@ -4,7 +4,9 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import C_BLACK, WIN_WIDTH, C_BLUE, C_WHITE, C_YELLOW, MENU_OPTION, WIN_HEIGHT
+from code.const import C_BLACK, WIN_WIDTH, C_BLUE, C_WHITE, C_YELLOW, MENU_OPTION, WIN_HEIGHT, MUSIC_VOLUME
+from code.entity import Entity
+from code.entityFactory import EntityFactory
 
 
 class Menu:
@@ -17,22 +19,22 @@ class Menu:
         menu_option: int = 0
         pygame.mixer_music.load('./assets/audio/music/menuMusic.WAV')
         pygame.mixer_music.play(-1)
-        pygame.mixer_music.set_volume(0.2)
+        pygame.mixer_music.set_volume(MUSIC_VOLUME)
         while True:
             # Draw images
             self.window.blit(source=self.surf, dest=self.rect, )
             # Title of the game
-            self.menu_text(150, "Flight And Fight", C_WHITE, (WIN_WIDTH / 2, 60))
-            self.menu_text(155, "Flight And Fight", C_BLUE, (WIN_WIDTH/2, 60))
+            self.menu_text(152, 'Ships and Rocks', C_WHITE, (WIN_WIDTH / 2, 90))
+            self.menu_text(150, "Ships and Rocks", C_BLUE, (WIN_WIDTH/2, 90))
             # self.menu_text(100, "Escape", C_WHITE, (340, 120))
             # self.menu_text(102, "Escape", C_BLUE, (340, 120))
             # Menu itens
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(60, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 200 + 60 * i))
+                    self.menu_text(60, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 300 + 60 * i))
 
                 else:
-                    self.menu_text(60, MENU_OPTION[i], C_BLACK, ((WIN_WIDTH / 2), 200 + 60 * i))
+                    self.menu_text(60, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 300 + 60 * i))
 
             pygame.display.flip()
 
