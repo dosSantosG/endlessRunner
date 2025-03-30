@@ -1,0 +1,16 @@
+# C
+C_BLACK = (0,0,0)
+C_YELLOW = (255, 128, 0)
+C_BLUE = (0,80,122)
+C_WHITE = (255,255,255)
+
+# M
+MENU_OPTION = (
+    'NEW GAME - 1P',
+    'NEW GAME - 2P',
+    'SCORE',
+    'EXIT')
+
+# W
+WIN_WIDTH = 1280
+WIN_HEIGHT = 720
