@@ -4,13 +4,13 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import C_BLACK, WIN_WIDTH, C_BLUE, C_WHITE, C_YELLOW, MENU_OPTION
+from code.const import C_BLACK, WIN_WIDTH, C_BLUE, C_WHITE, C_YELLOW, MENU_OPTION, WIN_HEIGHT
 
 
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load("./assets/menuBg/menuBg.png")
+        self.surf = pygame.image.load("./assets/menuBg/menuBg.png").convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
@@ -22,17 +22,17 @@ class Menu:
             # Draw images
             self.window.blit(source=self.surf, dest=self.rect, )
             # Title of the game
-            self.menu_text(205, "Mafia", C_WHITE, ((WIN_WIDTH / 2), 120))
-            self.menu_text(200, "Mafia", C_BLUE, ((WIN_WIDTH / 2), 120))
-            self.menu_text(205, "Assault", C_WHITE, ((WIN_WIDTH / 2), 230))
-            self.menu_text(200, "Assault", C_BLUE, ((WIN_WIDTH / 2), 230))
+            self.menu_text(150, "Flight And Fight", C_WHITE, (WIN_WIDTH / 2, 60))
+            self.menu_text(155, "Flight And Fight", C_BLUE, (WIN_WIDTH/2, 60))
+            # self.menu_text(100, "Escape", C_WHITE, (340, 120))
+            # self.menu_text(102, "Escape", C_BLUE, (340, 120))
             # Menu itens
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(55, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 400 + 60 * i))
+                    self.menu_text(60, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 200 + 60 * i))
 
                 else:
-                    self.menu_text(55, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 400 + 60 * i))
+                    self.menu_text(60, MENU_OPTION[i], C_BLACK, ((WIN_WIDTH / 2), 200 + 60 * i))
 
             pygame.display.flip()
 
